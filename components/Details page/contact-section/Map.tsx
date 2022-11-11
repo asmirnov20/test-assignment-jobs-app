@@ -9,14 +9,14 @@ interface Props {
 }
 
 const Map = ({ job }: Props) => {
-	const mapRef = useRef(undefined)
+	const mapRef = useRef(null)
 
-	const onLoad = useCallback((map: google.maps.Map) => {
+	const onLoad = useCallback((map: any) => {
 		mapRef.current = map
 	}, [])
 
 	const onUnmount = useCallback((map: google.maps.Map) => {
-		mapRef.current = undefined
+		mapRef.current = null
 	}, [])
 
 	const { isLoaded } = useLoadScript({
