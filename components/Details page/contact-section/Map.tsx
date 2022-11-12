@@ -1,21 +1,31 @@
 import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api'
-import { MapOptions } from 'google-map-react'
+import customOptions from './mapOptions'
 import { useCallback, useRef } from 'react'
 import Spinner from '../../Spinner'
-import { customTheme } from './mapTheme'
 
 interface Props {
-	job: Job
+	location: {
+		lat: number
+		long: number
+	}
 }
 
-const Map = ({ job }: Props) => {
+const Map = ({ location }: Props) => {
+	
 	const mapRef = useRef(null)
+	const { lat, long: lng } = location
+
+	const loc = {
+		lat,
+		lng,
+	}
+console.log(loc);
 
 	const onLoad = useCallback((map: any) => {
 		mapRef.current = map
 	}, [])
 
-	const onUnmount = useCallback((map: google.maps.Map) => {
+	const onUnmount = useCallback(() => {
 		mapRef.current = null
 	}, [])
 
@@ -24,30 +34,12 @@ const Map = ({ job }: Props) => {
 		googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
 	})
 
-	const { location } = job
-
-	const loc = {
-		lat: location.lat,
-		lng: location.long,
-	}
-
 	if (!isLoaded)
 		return (
 			<div className='relative'>
 				<Spinner />
 			</div>
 		)
-
-	const customOptions: MapOptions = {
-		zoomControl: false,
-		clickableIcons: false,
-		disableDefaultUI: true,
-		disableDoubleClickZoom: true,
-		draggable: false,
-		fullscreenControl: false,
-		keyboardShortcuts: false,
-		styles: customTheme,
-	}
 
 	return (
 		<div className='h-full w-full '>

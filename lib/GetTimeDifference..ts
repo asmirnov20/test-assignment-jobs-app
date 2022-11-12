@@ -1,6 +1,6 @@
-const getTimeDifference = (startPoint: string) => {
+const getTimeDifference = (startPoint: string, endPoint: string) => {
 	const date1 = Date.parse(startPoint)
-	const date2 = +new Date()
+	const date2 = Date.parse(endPoint)
 
 	const formatter = new Intl.RelativeTimeFormat('en')
 	const ranges = {
@@ -13,9 +13,9 @@ const getTimeDifference = (startPoint: string) => {
 		seconds: 1,
 	}
 
-    const secondsAgo = (date2 - date1) / 1000
-    
-    let key: keyof typeof ranges
+	const secondsAgo = (date1 - date2) / 1000
+
+	let key: keyof typeof ranges
 	for (key in ranges) {
 		if (ranges[key] <= Math.abs(secondsAgo)) {
 			const difference = secondsAgo / ranges[key]

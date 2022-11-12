@@ -8,7 +8,7 @@ interface Props {
 
 const Pagination = ({ handlePageChange, pageCount }: Props) => {
 	return (
-		<div className='mt-9 mb-16 grid place-content-center'>
+		<div className='mt-9 mb-16 md:mt-6 md:mb-4 grid place-content-center'>
 			<ReactPaginate
 				breakLabel='...'
 				initialPage={0}
@@ -31,6 +31,7 @@ const Pagination = ({ handlePageChange, pageCount }: Props) => {
 				pageClassName='pages'
 				pageLinkClassName='pageLink'
 				activeClassName='activePage'
+				activeLinkClassName='activeLink'
 				breakClassName='break'
 				previousClassName='prevStyle'
 			/>

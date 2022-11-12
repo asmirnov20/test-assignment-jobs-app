@@ -1,10 +1,8 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import JobList from '../components/Home page/JobList'
+import { JobList, Pagination } from '../components/Home page'
 import { getJobsFromApi } from '../api/axios'
 import { useEffect, useState } from 'react'
-import Pagination from '../components/Home page/Pagination'
-import { useStateContext } from '../context/StateContext'
 
 interface Props {
 	jobs: Job[]
@@ -14,9 +12,9 @@ const HomePage = ({ jobs }: Props) => {
 	const [currentItems, setCurrentItems] = useState<Job[]>([])
 	const [firstItemIndex, setFirstItemIndex] = useState(0)
 	const [itemsPerPage, setItemsPerPage] = useState(10)
-	const pageCount = 2
+	const pageCount = Math.ceil(jobs.length / itemsPerPage)
+
 	const [isMounted, setIsMounted] = useState(false)
-	const { isTabletOrBigger } = useStateContext() as AppContext
 
 	useEffect(() => {
 		setIsMounted(true)
@@ -34,16 +32,16 @@ const HomePage = ({ jobs }: Props) => {
 	}
 
 	return (
-		<div>
+		<div className='mx-auto flex min-h-screen max-w-[1400px] flex-col justify-between'>
 			<Head>
 				<title>Jobs App</title>
 			</Head>
 
-			<main className='mx-auto my-[30px] flex max-w-[1400px] flex-col gap-2 px-2 md:m-2 md:gap-1'>
+			<main className=' my-7 flex flex-col gap-2 px-2 md:m-2 md:gap-1'>
 				<JobList jobs={currentItems} />
 			</main>
 
-			{isMounted && isTabletOrBigger && (
+			{isMounted && (
 				<Pagination handlePageChange={handlePageChange} pageCount={pageCount} />
 			)}
 		</div>

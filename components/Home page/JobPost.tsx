@@ -9,9 +9,8 @@ interface Props {
 }
 
 const JobPost = ({ job }: Props) => {
-	const { createdAt, name, pictures, title, id, address } = job
-
-	const timeAgo = getTimeDifference(createdAt)
+	const { createdAt, name, pictures, title, id, address, updatedAt } = job
+	const timeAgo = getTimeDifference(createdAt, updatedAt)
 
 	return (
 		<article className='bg-white rounded-lg shadow-custom'>
@@ -20,7 +19,7 @@ const JobPost = ({ job }: Props) => {
 					<Image src={pictures[0]} fill alt={name} className='object-cover' />
 				</div>
 
-				<div className='flex flex-1 gap-8 md:flex-col-reverse md:gap-4 '>
+				<div className='flex flex-1 gap-8 md:flex-col-reverse md:gap-4'>
 					<div className='flex flex-1 flex-col justify-center'>
 						<Link href={`/${id}`}>
 							<h3 className=' text-lg font-bold leading-6 tracking-tighter'>
@@ -38,13 +37,13 @@ const JobPost = ({ job }: Props) => {
 						</div>
 					</div>
 
-					<div className='flex gap-8 md:justify-between'>
+					<div className='flex  gap-8 md:justify-between'>
 						<RatingIcon className='h-[18px] w-24 self-center md:h-[10px] md:w-[54px]' />
 
 						<div className='flex flex-col justify-between'>
-							<BookmarkIcon className='hovered h-8 w-8 self-end md:hidden' />
+							<BookmarkIcon className='h-8 w-8 cursor-pointer self-end duration-300 hover:scale-110 md:hidden' />
 							<p className='text-md whitespace-nowrap font-light leading-4 tracking-wide text-[#878D9D] '>
-								Posted {timeAgo}
+								Updated {timeAgo}
 							</p>
 						</div>
 					</div>

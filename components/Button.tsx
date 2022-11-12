@@ -1,24 +1,30 @@
-import { PrevIcon } from "./icons"
+import { PrevIcon } from './icons'
 
 interface Props {
-    returnBtn?: boolean
+	returnBtn?: boolean
+	text: string
 }
 
-const Button = ({ returnBtn }: Props) => {
-    return (
-        <button className={`flex justify-center items-center rounded-lg font-semibold text-xs uppercase text-center duration-300 hover:scale-105 my-8 md:mx-auto md:my-7 hover:cursor-pointer
-        ${returnBtn
-                    ? 'bg-[#38456414] w-[213px] h-[50px] md:hidden mr-12'
-                    : 'w-[127px] h-[52px] px-4 py-[30px] bg-[#384564] text-[#fff]  tracking-wider'}
-`}>
-            {returnBtn
-                ? <div className="flex justify-center items-center gap-5">
-                    <PrevIcon />
-                    <span>Return to Job Board</span>
-                </div>
-                : 'Apply Now'}
-        </button>
-    )
+const Button = ({ returnBtn, text }: Props) => {
+	return (
+		<button
+			className={`hovered my-8 flex items-center justify-center rounded-lg text-center text-xs font-semibold uppercase  md:mx-auto md:my-7
+        ${
+					returnBtn
+						? 'mr-12 h-[50px] w-[213px] bg-[#38456414] md:hidden'
+						: 'h-[52px] w-[127px] bg-[#384564] px-4 py-[30px] tracking-wider  text-[#fff]'
+				}`}
+		>
+			{returnBtn ? (
+				<div className='flex items-center justify-center gap-5'>
+					<PrevIcon />
+					{text}
+				</div>
+			) : (
+				<span>{text}</span>
+			)}
+		</button>
+	)
 }
 
 export default Button

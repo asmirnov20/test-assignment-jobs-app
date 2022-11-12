@@ -6,9 +6,9 @@ interface Props {
 }
 
 const Overview = ({ job }: Props) => {
-	const { title, salary, createdAt } = job
+	const { title, salary, createdAt, updatedAt } = job
 
-	const timeAgo = getTimeDifference(createdAt)
+	const timeAgo = getTimeDifference(createdAt, updatedAt)
 
 	return (
 		<section className='mt-8 flex flex-wrap justify-between gap-x-16 md:my-3'>

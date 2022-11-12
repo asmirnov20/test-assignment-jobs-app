@@ -26,10 +26,10 @@
 		@apply mt-6 font-secondary text-lg leading-6 tracking-tight text-[#3A4562] md:font-main md:text-[#38415d];
 	}
 	.hovered {
-		@apply hover:scale-110 duration-300 cursor-pointer
+		@apply cursor-pointer duration-300 hover:scale-105;
 	}
 	.pagination-container {
-		@apply relative flex h-[52px] w-[515px] flex-1 items-center justify-center space-x-4 rounded-lg bg-[#fff] py-3;
+		@apply flex h-[52px] w-[515px] flex-1 items-center justify-center space-x-4 rounded-lg bg-[#fff] py-3 md:h-[40px] md:w-[396px];
 	}
 	.prevStyle {
 		@apply flex items-center justify-center px-[26px] after:right-0 after:top-0 after:ml-6 after:h-[31px] after:w-[1.3px] after:bg-[#DEE3EF];
@@ -38,16 +38,18 @@
 		@apply flex items-center justify-center px-[26px] before:left-0 before:top-0 before:mr-6 before:h-[31px] before:w-[1.3px] before:bg-[#DEE3EF];
 	}
 	.pages {
-		@apply relative mt-4 mb-3 inline-block h-[30px] w-[30px] flex-1 text-lg font-bold tracking-widest text-[#70778B];
+		@apply relative mt-4 mb-3  h-[30px] w-[30px] flex-[1_1_auto] text-lg font-bold tracking-widest text-[#70778B] hover:cursor-pointer
 	}
 	.activePage {
-		@apply inline-block text-lg font-bold text-[#5876C5] after:absolute after:-bottom-2 after:left-0 after:h-[2.6px] after:w-full after:bg-[#5876c5];
+		@apply relative text-lg font-bold text-[#5876C5];
+	}
+	.activeLink {
+		@apply after:absolute after:-bottom-2 after:left-[25%] after:h-[2.6px] after:w-1/2 after:bg-[#5876c5] md:after:-bottom-1
 	}
 	.pageLink {
-		@apply flex items-center justify-center;
+		@apply flex items-center justify-center
 	}
 	.break {
 		@apply text-lg font-bold tracking-widest text-[#70778B];
 	}
 }
-

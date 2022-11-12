@@ -12,14 +12,15 @@ const PageHeader = ({ isTabletOrBigger }: Props) => {
 			<span className='absolute -bottom-2 right-0 h-[1px] w-full bg-[#3A4562] opacity-[0.13] md:hidden' />
 
 			<section className='flex gap-8'>
-				<div className='flex items-center justify-start gap-2 duration-300 hover:scale-105 hover:cursor-pointer'>
+				<div className=' hovered flex cursor-pointer items-center justify-start gap-2'>
+					
 					{isTabletOrBigger ? <BookmarkIcon /> : <StarIcon />}
 
 					<p className='font-secondary text-lg leading-6 tracking-tight '>
 						Save to my list
 					</p>
 				</div>
-				<div className='flex items-center justify-center duration-300 hover:scale-105 hover:cursor-pointer'>
+				<div className='hovered flex items-center justify-center'>
 					<ShareIcon />
 					<p className='ml-3 font-secondary text-lg tracking-tight '>Share</p>
 				</div>
