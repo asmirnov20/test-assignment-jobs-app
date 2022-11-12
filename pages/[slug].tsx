@@ -24,7 +24,7 @@ const DetailsPage = ({ job }: Props) => {
 	const { isTabletOrBigger } = useStateContext() as AppContext
 
 	return (
-		<div className='bg-white relative mx-auto mb-52 flex max-w-[1602px] justify-between py-6 px-24 md:mb-4 lg:flex-col lg:items-center lg:px-8'>
+		<div className='relative mx-auto flex max-w-[1602px] justify-between bg-[#fff] py-6 px-16 pb-52  md:px-4 md:pb-7 lg:flex-col lg:items-center'>
 			<div className='max-w-[774px]'>
 				<PageHeader isTabletOrBigger={isTabletOrBigger} />
 				<article>
@@ -51,13 +51,13 @@ const DetailsPage = ({ job }: Props) => {
 					<Heading text='Contacts' />
 				</div>
 
-				<div className='h-[436px] w-[402px] overflow-hidden rounded-lg bg-[#202336] md:w-[372px] md:self-center'>
+				<div className='h-[436px] w-[402px] overflow-hidden rounded-lg bg-[#202336] xs:max-w-[320px] md:w-[372px] md:self-center'>
 					<ContactInfo job={job} />
 					<Map location={location} />
 				</div>
 			</section>
 
-			<div className='absolute -bottom-[10%] left-[1%] lg:-bottom-[7%]'>
+			<div className='absolute bottom-[2%] left-[1%] lg:bottom-[3%]'>
 				<Link href='/'>
 					<Button returnBtn={true} text='Return to Job Board' />
 				</Link>

@@ -17,14 +17,11 @@ const JobDescription = ({ description }: Props) => {
 			<p className='p-text'>{responsibilities}</p>
 
 			<h3 className='h-text'>Compenstaion and Benefits</h3>
-			<ul>
+			<ul className='list-outside'>
 				{formatForList(compensation).map(item => (
-					<li
-						className='p-text relative m-0 font-normal md:indent-8'
-						key={item}
-					>
-						<BulletIcon className='absolute top-[30%] -left-5 md:left-0' />
-						{item}
+					<li className='p-text relative m-0 font-normal ' key={item}>
+						<BulletIcon className='absolute top-[30%] -left-5 min-h-[9px] min-w-[9px] md:static md:inline' />
+						<span className='md:ml-8'>{item}</span>
 					</li>
 				))}
 			</ul>

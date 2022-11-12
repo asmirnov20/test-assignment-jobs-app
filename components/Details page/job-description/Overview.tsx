@@ -11,7 +11,7 @@ const Overview = ({ job }: Props) => {
 	const timeAgo = getTimeDifference(createdAt, updatedAt)
 
 	return (
-		<section className='mt-8 flex flex-wrap justify-between gap-x-16 md:my-3'>
+		<section className='mt-8 flex flex-wrap justify-between gap-x-16 md:my-3 xs:gap-x-0'>
 			<h2 className='mt-2 flex flex-[1_1_65%] text-2xl font-bold tracking-tight md:flex-[1_0_100%]'>
 				{title}
 			</h2>
