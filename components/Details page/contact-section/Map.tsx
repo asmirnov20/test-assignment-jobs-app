@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Map = ({ location }: Props) => {
-	
 	const mapRef = useRef(null)
 	const { lat, long: lng } = location
 
@@ -19,7 +18,6 @@ const Map = ({ location }: Props) => {
 		lat,
 		lng,
 	}
-console.log(loc);
 
 	const onLoad = useCallback((map: any) => {
 		mapRef.current = map
@@ -42,11 +40,11 @@ console.log(loc);
 		)
 
 	return (
-		<div className='h-full w-full '>
+		<>
 			<GoogleMap
 				center={loc}
 				zoom={12}
-				mapContainerClassName='h-full w-full '
+				mapContainerClassName='mapContainer'
 				onLoad={onLoad}
 				onUnmount={onUnmount}
 				options={customOptions}
@@ -57,7 +55,7 @@ console.log(loc);
 					clickable={false}
 				/>
 			</GoogleMap>
-		</div>
+		</>
 	)
 }
 

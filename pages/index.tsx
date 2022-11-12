@@ -37,7 +37,7 @@ const HomePage = ({ jobs }: Props) => {
 				<title>Jobs App</title>
 			</Head>
 
-			<main className=' my-7 flex flex-col gap-2 px-2 md:m-2 md:gap-1'>
+			<main className='my-7 flex flex-col gap-2 px-1 md:m-2 md:gap-1'>
 				<JobList jobs={currentItems} />
 			</main>
 

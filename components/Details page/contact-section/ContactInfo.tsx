@@ -6,11 +6,10 @@ interface Props {
 }
 
 const ContactInfo = ({ job }: Props) => {
-	
 	const { address, phone, email, name } = job
 
 	return (
-		<div className='flex flex-[1_0_40%] flex-col gap-3 pt-7 pb-5 pr-[70px] pl-16 md:flex-[1_0_50%] md:py-8'>
+		<div className='flex flex-col gap-3 pt-7 pb-5 pr-[70px] pl-16 md:py-8 h-[42%] md:h-[52%]'>
 			<div>
 				<h4 className='text-xl font-bold leading-6 tracking-tight text-[#E7EAF0] md:text-base md:leading-5 md:tracking-wider'>
 					{name}
@@ -18,7 +17,7 @@ const ContactInfo = ({ job }: Props) => {
 			</div>
 			<div className='flex items-center gap-2 md:py-2'>
 				<MapIcon />
-				<p className='pt-1 font-secondary text-lg tracking-tighter text-[#E8EBF3] md:font-main md:text-base md:text-[#E7EAF0]'>
+				<p className='whitespace-nowrap pt-1 font-secondary text-lg tracking-tighter text-[#E8EBF3] md:font-main md:text-base md:text-[#E7EAF0]'>
 					{formatAdress(address)}
 				</p>
 			</div>
