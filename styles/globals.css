@@ -53,6 +53,6 @@
 		@apply text-lg font-bold tracking-widest text-[#70778B] xs:hidden;
 	}
 	.mapContainer {
-		@apply h-[63%] md:h-[53%]
+		@apply h-[63%] md:h-[53%];
 	}
 }
